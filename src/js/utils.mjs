@@ -38,17 +38,12 @@ export function renderlistwithtemplate(
   position = "afterbegin",
   clear = false
   ) {
-    const htmlStrings=list.map(templateFn);
+    const htmlStrings = list.map(templateFn);
+
     if (clear) {
       parentElement.innerHTML - "";
-      parentElement.insertAdjacentHTML (position,HTMLsTRINGS.JOIN(""));
     }
-     
+
+    parentElement.insertAdjacentHTML (position,htmlStrings.join(""));
   }
-  export function setClick(selector, callback) {
-    qs(selector).addEvenListener("louchend", (Event) =>{
-      Event.preventDefault();
-      callback();
-    });
-    qs(selector).addEventListener("click", callback);
-  }
+
