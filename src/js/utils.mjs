@@ -27,7 +27,8 @@ export function getParam(param) {
   // gets URL parameters
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  return urlParams.get(param);
+  const product = urlParams.get(param);
+  return product;
 
 }
 

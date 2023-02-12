@@ -1,10 +1,9 @@
 import { renderlistwithtemplate } from "./utils.mjs";
-const baseURL = 'http://server-nodejs.cit.byui.edu:3000/'
 
 function ProductCardTemplate(product) {
     return `<li class = "product-card"> 
-    <a href ="product_pages/index.html?product=${product.Id}"> 
-    <img src ="${product.Image}"
+    <a href ="../product_pages/index.html?product=${product.Id}"> 
+    <img src ="${product.Images.PrimaryMedium}"
     alt ="Image of ${product.Name}" />
     <h3 class ="card_brand">${product.Brand.Name} </h3>
     <h2 class ="card_name">${product.Name} </h2>
@@ -22,16 +21,11 @@ export default class ProductList {
 
     }
     async init() {
-        const list = await this.datasource.getData();
+        const list = await this.datasource.getData(this.category);
         this.renderlist(list);
+        document.querySelector(".title").innerHTML = this.category;
     }
     renderlist(list) {
         renderlistwithtemplate(ProductCardTemplate, this.listElement, list);
     }
-    async getData(category) {
-        const response = await fetch(baseURL + `products/search/${category}`);
-        const data = await convertToJson(response);
-        return data.Result;
-    }
-
 }
