@@ -1,4 +1,5 @@
 import { renderlistwithtemplate } from "./utils.mjs";
+const baseURL = 'http://server-nodejs.cit.byui.edu:3000/'
 
 function ProductCardTemplate(product) {
     return `<li class = "product-card"> 
@@ -15,8 +16,8 @@ export default class ProductList {
     constructor (category, datasource, listElement) {
     // we decided to use this information in order to make our class as reusable as possible 
     // the ability to be able to define these things when we use the class will make  it flexible
-    this.category = category
-    this.datasource = datasource
+    this.category = category //definitely category
+    this.datasource = datasource //is this the path the instructions mention?
     this.listElement = listElement
 
     }
@@ -26,6 +27,11 @@ export default class ProductList {
     }
     renderlist(list) {
         renderlistwithtemplate(ProductCardTemplate, this.listElement, list);
+    }
+    async getData(category) {
+        const response = await fetch(baseURL + `products/search/${category}`);
+        const data = await convertToJson(response);
+        return data.Result;
     }
 
 }

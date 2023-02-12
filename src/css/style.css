@@ -133,6 +133,9 @@ button {
   text-decoration: none;
   color: var(--dark-grey);
 }
+.product-categories {
+  display: grid;
+}
 /* Styles for product lists */
 .product-card {
   flex: 1 1 45%;
