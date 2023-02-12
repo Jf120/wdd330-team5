@@ -133,6 +133,9 @@ button {
   text-decoration: none;
   color: var(--dark-grey);
 }
+.product-categories {
+  display: grid;
+}
 /* Styles for product lists */
 .product-card {
   flex: 1 1 45%;
@@ -164,6 +167,26 @@ button {
 
 .product-detail img {
   width: 100%;
+}
+
+.product-grid {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-content: center;
+  text-align: center;
+}
+
+.product-grid a {
+  text-decoration: none;
+}
+
+.product-grid a:link {
+  color: black;
+}
+
+.product-grid a:visited {
+  color: gray;
 }
 
 /* Start cart list card styles */
