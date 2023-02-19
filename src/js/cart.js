@@ -5,3 +5,8 @@ loadHeaderFooter();
 
 const cart = new cartList("so-cart", ".product-list");
 cart.renderCartContents();
+cart.price();
+
+if (cart) {
+  document.querySelector(".hide").style.visibility = "visible";
+}

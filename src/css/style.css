@@ -225,6 +225,47 @@ button {
   grid-column: 3;
 }
 
+.hide {
+  visibility: hidden;
+}
+
+.cart-footer {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+}
+
+.cart-footer a {
+  padding: 0.5em 2em;
+  background-color: var(--secondary-color);
+  color: white;
+  margin: auto auto 20px auto;
+  /* display: block; */
+  border: 0;
+  font-size: var(--large-font);
+  cursor: pointer;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-form {
+  margin: auto 220px;
+}
+
+.checkout__name,
+.checkout__address {
+  display: flex;
+  flex-direction: column;
+}
+
+#checkoutSubmit {
+  margin: 20px auto;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
