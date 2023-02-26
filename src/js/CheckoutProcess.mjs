@@ -41,11 +41,15 @@ export default class CheckoutProcess {
         this.calculateItemSummary();
     }
     calculateItemSummary() {
+      // establish that the cart exists to avoid a null error.
+      if(!this.list) {
+        this.list = [];
+      } 
       // calculate and display the total amount of the items in the cart, and the number of items.
       this.itemTotal = this.list.length;
 
       const totalList = this.list.map((product) => product.FinalPrice);
-      this.subTotal = totalList.reduce((sum, product) => sum + product);
+      this.subTotal = totalList.reduce((sum, product) => sum + product, 0);
 
       document.querySelector("#num-items").innerText = `${this.itemTotal}`;
       document.querySelector("#cartTotal").innerText = `$${this.subTotal}`;

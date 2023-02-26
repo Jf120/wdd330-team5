@@ -13,6 +13,14 @@ export function getLocalStorage(key) {
 export function setLocalStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
 }
+// remove all data from localstorage
+// Remove This Comment When This Function Works:
+export function clearLocalStorage() {
+  console.log("You are now entering the clear function");
+  for (var value of localStorage) {
+    localStorage.setItem(key, null);
+  }
+}
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
   qs(selector).addEventListener("touchend", (event) => {
